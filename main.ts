@@ -15,6 +15,9 @@ input.onButtonPressed(Button.A, function () {
 input.onButtonPressed(Button.AB, function () {
     datalogger.deleteLog(datalogger.DeleteType.Full)
 })
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    serial.writeLine("Hi!")
+})
 let Block_Hash = 0
 let ID = 0
 led.stopAnimation()
@@ -27,6 +30,8 @@ let Block_Reward = 10
 ID = 6
 timeanddate.set24HourTime(12, 0, 0)
 datalogger.setColumnTitles("Block_Hash")
+datalogger.mirrorToSerial(true)
+serial.writeLine("Online")
 basic.forever(function () {
 	
 })
