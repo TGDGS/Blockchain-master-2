@@ -6,7 +6,6 @@ datalogger.onLogFull(function () {
     basic.showString("EF")
 })
 function Generate_Hash () {
-    let Block_Hash_Array: number[] = []
     Block_Hash = Math.round(randint(6588, 8973) * (randint(8, 6587) / randint(6.9, 420)))
     Block_Hash_Array.push(Block_Hash)
     datalogger.log(datalogger.createCV("Block_Hash", "" + Block_Hash + "," + ID))
@@ -17,7 +16,7 @@ input.onButtonPressed(Button.A, function () {
 })
 function Wallet_Amount () {
     Wallet = datalogger.createCV("Block_Hash", Value)
-    if (Wallet.split("_") == "") {
+    if (Block_Hash_Array.split("_") == "") {
     	
     }
     Value += 1
@@ -33,6 +32,7 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
 })
 let Value = 0
 let Wallet: datalogger.ColumnValue = null
+let Block_Hash_Array: number[] = []
 let Block_Hash = 0
 let ID = 0
 led.stopAnimation()
